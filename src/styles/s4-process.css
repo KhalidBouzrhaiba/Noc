@@ -1,0 +1,363 @@
+/* ───────────────────────── 04 · From talent to experience ───────────────────────── */
+.s4 {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: clamp(14px, 2.6vh, 30px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.s4__head {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.s4__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 76%;
+  font-size: clamp(2.4rem, min(6.4vw, 10vh), 6.6rem);
+  line-height: 0.9;
+}
+.s4__title .w {
+  display: inline-block;
+}
+.s4__title .w--1 { color: var(--turq); rotate: -2deg; }
+.s4__title .w--2 { color: var(--yellow); rotate: 1.5deg; }
+.s4__title .w--3 { color: var(--coral); rotate: -1deg; }
+
+/* steps connected by a hand-drawn path */
+.s4__flow {
+  position: relative;
+}
+.s4__path {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 50%;
+  width: 92%;
+  height: 120px;
+  translate: 0 -50%;
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.55;
+  --draw-delay: 0.45s;
+}
+.s4__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 70px);
+  counter-reset: step;
+}
+.s4__step:nth-child(1) { rotate: -2deg; }
+.s4__step:nth-child(2) { rotate: 1.5deg; translate: 0 12px; }
+.s4__step:nth-child(3) { rotate: -1deg; }
+.s4__card {
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+.s4__card > .paper__content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  row-gap: 4px;
+  align-items: center;
+  padding: clamp(14px, 2vh, 22px) clamp(14px, 1.5vw, 22px);
+}
+.s4__num {
+  grid-row: span 2;
+  align-self: start;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 2rem + 2.4vw, 4.4rem);
+  line-height: 0.85;
+  color: var(--ink);
+}
+.s4__step-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: clamp(1.1rem, 0.85rem + 0.9vw, 1.65rem);
+  line-height: 0.95;
+}
+.s4__step-text {
+  font-size: clamp(0.86rem, 0.8rem + 0.25vw, 1rem);
+  font-weight: 500;
+  line-height: 1.32;
+}
+
+/* event posters */
+.s4__events {
+  display: grid;
+  gap: clamp(10px, 1.8vh, 18px);
+  align-content: start;
+}
+.s4__events-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+.s4__events-title {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 1.1rem + 0.9vw, 2.1rem);
+  line-height: 1;
+  color: var(--cream);
+}
+.s4__proposed {
+  padding: 5px 10px 4px;
+  border: 2.5px solid var(--magenta);
+  color: var(--magenta);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  rotate: -4deg;
+}
+.s4__posters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.6vw, 40px);
+  padding-top: 10px;
+}
+.poster:nth-child(1) { rotate: 2.5deg; }
+.poster:nth-child(2) { rotate: -2deg; translate: 0 8px; }
+.poster:nth-child(3) { rotate: 1.5deg; }
+.poster__paper {
+  --shadow: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  transition: rotate 0.3s var(--ease-pop), scale 0.3s var(--ease-pop);
+}
+.poster:hover .poster__paper {
+  rotate: -2deg;
+  scale: 1.03;
+}
+.poster__paper > .paper__content {
+  position: relative;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  min-height: clamp(170px, 30vh, 320px);
+  height: 100%;
+  padding: clamp(14px, 2vh, 22px) clamp(14px, 1.4vw, 22px);
+  overflow: hidden;
+}
+.poster__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 8px 3px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--cream);
+}
+.poster__name {
+  position: relative;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 75%;
+  font-size: clamp(1.7rem, 1rem + 2.4vw, 3.4rem);
+  line-height: 0.85;
+}
+.poster__name span {
+  display: block;
+}
+.poster__text {
+  position: relative;
+  font-weight: 600;
+  font-size: clamp(0.86rem, 0.8rem + 0.25vw, 1rem);
+}
+.poster__art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* BABEL BATTLE */
+.poster--babel .paper {
+  --paper: var(--yellow);
+}
+.poster--babel .poster__name span {
+  color: var(--purple);
+}
+.poster__bubble {
+  position: absolute;
+  padding: 3px 9px 4px;
+  border-radius: 12px 12px 12px 2px;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.25rem);
+  line-height: 1.1;
+  color: var(--cream);
+  background: var(--ink);
+}
+.poster__bubble--0 { top: 14%; right: 8%; rotate: 6deg; background: var(--purple); }
+.poster__bubble--1 { top: 30%; right: 36%; rotate: -8deg; }
+.poster__bubble--2 { top: 6%; right: 44%; rotate: -3deg; background: var(--coral); color: var(--ink); }
+.poster__bubble--3 { top: 36%; right: 6%; rotate: 4deg; background: var(--magenta); color: var(--ink); }
+.poster__bubble--4 { top: 50%; right: 26%; rotate: -5deg; background: var(--turq); color: var(--ink); }
+.poster__vs {
+  --olc: var(--ink);
+  --outline-fill: var(--yellow);
+  position: absolute;
+  left: 16px;
+  top: 46px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2.6rem;
+  line-height: 1;
+  rotate: -12deg;
+}
+
+/* EST FILM RUSH */
+.poster--rush .paper {
+  --paper: var(--coral);
+}
+.poster--rush .paper__sheet {
+  background-image:
+    repeating-linear-gradient(90deg, var(--ink) 0 9px, transparent 9px 20px),
+    var(--fibres);
+  background-size: 100% 7px, auto;
+  background-position: 0 6px, 0 0;
+  background-repeat: repeat-x, repeat;
+}
+.poster__film {
+  position: absolute;
+  right: -6%;
+  top: 6%;
+  width: 46%;
+  color: var(--ink);
+  opacity: 0.22;
+  rotate: 14deg;
+}
+.poster__clap {
+  position: absolute;
+  right: 10%;
+  top: 16%;
+  width: 26%;
+  max-width: 84px;
+  color: var(--ink);
+  rotate: -8deg;
+}
+.poster__count {
+  position: absolute;
+  left: 14px;
+  top: 46px;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.8rem + 0.6vw, 1.4rem);
+  color: var(--cream);
+  rotate: -4deg;
+}
+
+/* MOSAÏQUE SPOTLIGHT */
+.poster--spot .paper {
+  --paper: var(--purple);
+  color: var(--cream);
+}
+.poster--spot .poster__name span {
+  color: var(--yellow);
+}
+.poster__beam {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 85%;
+  height: 100%;
+  background: linear-gradient(200deg, rgba(255, 210, 63, 0.75), rgba(255, 210, 63, 0) 70%);
+  clip-path: polygon(78% 0, 92% 0, 75% 100%, 10% 100%);
+  mix-blend-mode: screen;
+  transform-origin: 85% 0;
+}
+.poster__spot-star {
+  position: absolute;
+  right: 20%;
+  top: 34%;
+  width: 22%;
+  max-width: 64px;
+  color: var(--yellow);
+}
+.poster__spot-spark {
+  position: absolute;
+  right: 8%;
+  top: 14%;
+  width: 26px;
+  color: var(--cream);
+}
+.poster--spot .poster__tag {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* entrance: words stamp in, path draws itself, steps follow, posters get pasted on the wall */
+.is-active .s4__title .w {
+  animation: slap-in 0.45s var(--ease-out) both;
+}
+.is-active .s4__title .w--1 { animation-delay: 0.1s; }
+.is-active .s4__title .w--2 { animation-delay: 0.28s; }
+.is-active .s4__title .w--3 { animation-delay: 0.46s; }
+.is-active .s4__path .draw {
+  animation-duration: 1.4s;
+}
+.is-active .s4__step .s4__card {
+  animation: pop-in 0.55s var(--ease-pop) both;
+  animation-delay: calc(0.55s + var(--i) * 0.32s);
+}
+.is-active .s4__events-head {
+  animation: rise-in 0.5s 1.35s var(--ease-out) both;
+}
+.is-active .poster .poster__paper {
+  animation: paste 0.6s var(--ease-out) both;
+  animation-delay: calc(1.45s + var(--i) * 0.15s);
+}
+.is-active .poster__beam {
+  animation: beam 3.5s 2.2s ease-in-out infinite alternate;
+}
+@keyframes paste {
+  0% {
+    opacity: 0;
+    translate: 0 -40px;
+    rotate: -12deg;
+    scale: 1.15;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes beam {
+  from { rotate: 0deg; }
+  to { rotate: 9deg; }
+}
+
+@media (max-width: 960px) {
+  .s4__path {
+    display: none;
+  }
+  .s4__steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 620px;
+    border-left: 3px dashed rgba(255, 244, 224, 0.4);
+    padding-left: 18px;
+  }
+  .s4__step:nth-child(n) {
+    translate: none;
+  }
+  .s4__posters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .s4__posters {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .poster:nth-child(n) {
+    translate: none;
+  }
+}

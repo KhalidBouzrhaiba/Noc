@@ -1,0 +1,249 @@
+/* ───────────────────────── 02 · Why Mosaïque ───────────────────────── */
+.s2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.s2__text {
+  display: grid;
+  gap: clamp(14px, 2.6vh, 28px);
+  align-content: center;
+}
+.s2__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(2.6rem, min(6.6vw, 11vh), 7rem);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+}
+.s2__title .line {
+  display: inline-block;
+}
+.s2__title .line--hl {
+  color: var(--yellow);
+}
+.s2__title .line--hl:last-child {
+  position: relative;
+  color: var(--ink);
+  padding: 0 0.12em;
+  margin-top: 0.06em;
+  rotate: -2deg;
+}
+.s2__title .line--hl:last-child::before {
+  content: '';
+  position: absolute;
+  inset: 0.04em -0.04em -0.02em;
+  z-index: -1;
+  background: var(--yellow);
+  clip-path: polygon(2% 8%, 30% 0, 62% 6%, 99% 0, 97% 52%, 100% 96%, 60% 100%, 28% 93%, 0 100%, 3% 50%);
+}
+
+.s2__quote {
+  max-width: 34ch;
+  font-size: clamp(1.02rem, 0.9rem + 0.5vw, 1.32rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(255, 244, 224, 0.9);
+  border-left: 4px solid var(--coral);
+  padding-left: 16px;
+}
+
+.s2__keywords {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+}
+.s2__keywords li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.s2__kw {
+  padding: 0.42em 0.6em 0.36em;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: clamp(1.15rem, 0.9rem + 1.2vw, 2rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  rotate: var(--r);
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+.s2__dot {
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+/* the mosaic of passions */
+.s2__art {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+.s2__mosaic {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 7px;
+  width: min(100%, 64vh, 600px);
+  aspect-ratio: 1;
+  rotate: -2deg;
+}
+.s2__tile {
+  --shadow: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+  rotate: var(--tilt);
+  transition: rotate 0.3s var(--ease-pop), scale 0.3s var(--ease-pop);
+}
+.s2__tile > .paper__content {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 8px;
+}
+.s2__tile-icon {
+  width: clamp(26px, 4.4vh, 48px);
+}
+.s2__tile-word {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(0.72rem, 0.6rem + 0.4vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.s2__tile:hover {
+  rotate: calc(var(--tilt) * -2);
+  scale: 1.05;
+  z-index: 2;
+}
+.s2__seal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 32%;
+  aspect-ratio: 1;
+  padding: 10px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--cream);
+  border: 3px dashed var(--yellow);
+  box-shadow: 0 0 0 8px var(--navy);
+  rotate: -8deg;
+  pointer-events: none;
+}
+.s2__seal span {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+  line-height: 1;
+}
+.s2__seal strong {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: clamp(1.4rem, 1rem + 1.6vw, 2.6rem);
+  line-height: 0.9;
+  color: var(--yellow);
+}
+.s2__note {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  justify-self: start;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
+  color: var(--turq);
+  rotate: -2deg;
+}
+.s2__note-arrow {
+  width: 60px;
+  scale: 1 -1;
+  --draw-delay: 1.9s;
+}
+
+/* entrance: scattered fragments assemble into one composition */
+.is-active .s2__title .line {
+  animation: rise-in 0.6s var(--ease-out) both;
+}
+.is-active .s2__title .line:nth-child(1) { animation-delay: 0.1s; }
+.is-active .s2__title .line:nth-child(2) { animation-delay: 0.18s; }
+.is-active .s2__title .line:nth-child(3) { animation-delay: 0.32s; }
+.is-active .s2__title .line:nth-child(4) { animation: slap-in 0.5s 0.45s var(--ease-out) both; }
+.is-active .s2__quote { animation: rise-in 0.6s 0.55s var(--ease-out) both; }
+.is-active .s2__keywords li {
+  animation: pop-in 0.45s var(--ease-pop) both;
+  animation-delay: calc(1.5s + var(--i) * 0.14s);
+}
+.is-active .s2__tile {
+  animation: assemble 1.1s var(--ease-out) both;
+  animation-delay: calc(0.2s + var(--i) * 55ms);
+}
+.is-active .s2__seal { animation: seal-in 0.55s 1.35s var(--ease-pop) both; }
+.is-active .s2__note { animation: rise-in 0.5s 1.8s var(--ease-out) both; }
+@keyframes assemble {
+  0% {
+    opacity: 0;
+    translate: var(--sx) var(--sy);
+    rotate: var(--sr);
+    scale: 0.7;
+  }
+  35% {
+    opacity: 1;
+    translate: calc(var(--sx) * 0.55) calc(var(--sy) * 0.55);
+    rotate: calc(var(--sr) * 0.6);
+    scale: 0.8;
+  }
+}
+@keyframes seal-in {
+  from {
+    opacity: 0;
+    scale: 0;
+    rotate: -120deg;
+  }
+}
+
+@media (max-width: 960px) {
+  .s2 {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding-top: 12px;
+  }
+  .s2__title {
+    font-size: clamp(2.4rem, 10vw, 5rem);
+  }
+  .s2__mosaic {
+    width: min(100%, 460px);
+  }
+}
+@media (max-width: 760px) {
+  .s2__mosaic {
+    gap: 5px;
+  }
+  .s2__tile-word {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+  }
+  .s2__seal {
+    width: 44%;
+  }
+  .s2__note {
+    justify-self: center;
+  }
+}
