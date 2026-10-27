@@ -21,7 +21,7 @@ npm run build      # outputs to dist/
 npm run preview    # serves dist/ at http://localhost:4173
 ```
 
-The `dist/` folder can be hosted anywhere static. Every push to `main` is deployed to GitHub Pages by `.github/workflows/deploy.yml` (live at https://khalidbouzrhaiba.github.io/noc/). Fonts are bundled locally, so the presentation works **offline**. Only the WhatsApp link needs the internet.
+The `dist/` folder can be hosted anywhere static. Every push to `main` is deployed to GitHub Pages by `.github/workflows/deploy.yml` (live at https://khalidbouzrhaiba.github.io/Noc/). Fonts are bundled locally, so the presentation works **offline**. Only the WhatsApp link needs the internet.
 
 ## Navigating the presentation
 
